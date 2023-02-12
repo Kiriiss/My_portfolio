@@ -1,0 +1,33 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
+
+{% block main %}
+{% include 'posts/nav.html' %}
+{% include 'posts/categories.html' %}
+{% endblock %}
+{% block content %}
+<div>
+    <form  action="{% url 'users:login' %} " method="post" >
+        {% csrf_token %}
+        <div class="col-md-6 offset-md-3">
+        <div class=>
+            <label class="form-label"  id="{{ form.email.id_for_label }}">
+                {{ form.email}}
+            </label>
+        </div >
+        <div class="mb-2">
+            <label class="form-label" id="{{ form.password.id_for_label }}">
+                {{ form.password}}
+            </label>
+        </div>
+        <button type="button" class="btn btn-outline-primary">Войти</button>
+        <div class="form-check">
+        </div>
+            </div>
+    </form>
+
+</div>
+{% endblock %}

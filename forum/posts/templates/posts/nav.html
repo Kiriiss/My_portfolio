@@ -1,0 +1,16 @@
+<header class="header">
+    <ul class="list">
+        <li><a href="{% url 'posts:index' %}">Главная страница</a></li>
+        <li><a href="">Категории</a></li>
+        <li><a href="">О нас</a></li>
+        {% if not user.is_authenticated %}
+        <li><a href="{% url 'users:login' %}">Авторизация</a></li>
+        <li><a href="">Регистрация</a></li>
+        {% else %}
+        <li><a href="">Добавить новость</a></li>
+        <li><a href="">Добавить категорию</a></li>
+        <li><a href="{% url 'users:profile' %}">Профиль</a></li>
+        {% endif %}
+
+    </ul>
+</header>

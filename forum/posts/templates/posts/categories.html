@@ -1,0 +1,7 @@
+<aside class="aside">
+    <ul class="links">
+        {% for item in categories %}
+        <li><a href="{% url 'posts:get_category' item.pk %}">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+</aside>

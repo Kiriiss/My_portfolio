@@ -1,0 +1,17 @@
+{% extends 'posts/base.html' %}
+{% load static %}
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block main %}
+{% include 'posts/nav.html' %}
+
+<div class="main_profile">
+    <form action="{% url 'users:profile' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="button" class="btn btn-success">Подтвердить</button>
+    </form>
+</div>
+
+{% endblock %}
